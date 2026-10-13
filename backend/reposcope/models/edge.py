@@ -20,6 +20,7 @@ class Edge(Base):
     )#where symbol ends
 
     kind: Mapped[str] = mapped_column(String(50))#what type of connection ex:function call
+    confidence: Mapped[float | None] = mapped_column(nullable=True, default=None)
 
     __table_args__ = (
         UniqueConstraint(
