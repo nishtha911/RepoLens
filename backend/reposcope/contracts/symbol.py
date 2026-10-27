@@ -16,6 +16,7 @@ class Symbol(BaseModel):
     id: int | None = Field(default=None, gt=0)
     file_id: int = Field(gt=0)
     name: str = Field(min_length=1)
+    qualname: str | None = Field(default=None, min_length=1)  # e.g. "MyClass.my_method"; None for top-level or unknown
     kind: SymbolKind
     start_line: int = Field(ge=1)
     end_line: int = Field(ge=1)
